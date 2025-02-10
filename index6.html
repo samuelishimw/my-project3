@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        input, select, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="myForm">
+        <h3>Form Validation Example</h3>
+
+        <!-- Name -->
+        <input type="text" id="name" placeholder="Enter your name" required />
+
+        <!-- Email -->
+        <input type="email" id="email" placeholder="Enter your email" required />
+
+        <!-- Password -->
+        <input type="password" id="password" placeholder="Enter your password" required />
+
+        <!-- Confirm Password -->
+        <input type="password" id="confirmPassword" placeholder="Confirm your password" required />
+
+        <!-- Age -->
+        <input type="number" id="age" placeholder="Enter your age (18-100)" min="18" max="100" required />
+
+        <!-- Date -->
+        <input type="date" id="date" required />
+
+        <!-- Phone Number -->
+        <input type="text" id="phone" placeholder="Enter your phone number (10 digits)" required />
+
+        <!-- Checkbox -->
+        <label>
+            <input type="checkbox" id="terms" required /> I agree to the terms and conditions
+        </label>
+
+        <!-- Country Dropdown -->
+        <select id="country" required>
+            <option value="">Select a country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+        </select>
+
+        <!-- Custom Field -->
+        <input type="text" id="customField" placeholder="Enter a custom field" required />
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+                  <script>
+                    document.getElementById("")
+                  </script>
+    
+</body>
+</html>

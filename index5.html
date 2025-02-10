@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        input, select, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="myForm">
+        <h3>Form Validation Example</h3>
+
+        <!-- Name -->
+        <input type="text" id="name" placeholder="Enter your name" required />
+
+        <!-- Email -->
+        <input type="email" id="email" placeholder="Enter your email" required />
+
+        <!-- Password -->
+        <input type="password" id="password" placeholder="Enter your password" required />
+
+        <!-- Confirm Password -->
+        <input type="password" id="confirmPassword" placeholder="Confirm your password" required />
+
+        <!-- Age -->
+        <input type="number" id="age" placeholder="Enter your age (18-100)" min="18" max="100" required />
+
+        <!-- Date -->
+        <input type="date" id="date" required />
+
+        <!-- Phone Number -->
+        <input type="text" id="phone" placeholder="Enter your phone number (10 digits)" required />
+
+        <!-- Checkbox -->
+        <label>
+            <input type="checkbox" id="terms" required /> I agree to the terms and conditions
+        </label>
+
+        <!-- Country Dropdown -->
+        <select id="country" required>
+            <option value="">Select a country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+        </select>
+
+        <!-- Custom Field -->
+        <input type="text" id="customField" placeholder="Enter a custom field" required />
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (e) {
+            // Name Validation
+            const name = document.getElementById('name').value;
+            if (!name) {
+                alert('Name is required!');
+                e.preventDefault();
+                return;
+            }
+
+            // Email Validation
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                alert('Please enter a valid email address!');
+                e.preventDefault();
+                return;
+            }
+
+            // Password Validation (length check)
+            const password = document.getElementById('password').value;
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long!');
+                e.preventDefault();
+                return;
+            }
+
+            // Confirm Password Validation
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                e.preventDefault();
+                return;
+            }
+
+            // Age Validation
+            const age = document.getElementById('age').value;
+            if (age < 18 || age > 100) {
+                alert('Age must be between 18 and 100!');
+                e.preventDefault();
+                return;
+            }
+
+            // Date Validation (date can't be in the future)
+            const date = new Date(document.getElementById('date').value);
+            const today = new Date();
+            if (date > today) {
+                alert('Please select a date in the past!');
+                e.preventDefault();
+                return;
+            }
+
+            // Phone Number Validation (must be 10 digits)
+            const phone = document.getElementById('phone').value;
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phone.match(phonePattern)) {
+                alert('Please enter a valid 10-digit phone number!');
+                e.preventDefault();
+                return;
+            }
+
+            // Terms Checkbox Validation
+            const terms = document.getElementById('terms').checked;
+            if (!terms) {
+                alert('You must agree to the terms and conditions!');
+                e.preventDefault();
+                return;
+            }
+
+            // Country Selection Validation
+            const country = document.getElementById('country').value;
+            if (country === "") {
+                alert('Please select a country!');
+                e.preventDefault();
+                return;
+            }
+
+            // Custom Field Validation
+            const customField = document.getElementById('customField').value;
+            if (customField.length < 3) {
+                alert('Custom field must be at least 3 characters long!');
+                e.preventDefault();
+                return;
+            }
+
+            // If all validations pass
+            alert('Form submitted successfully!');
+        });
+    </script>
+
+</body>
+</html>
