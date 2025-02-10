@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 200vh;
+        }
+        .main{
+            width: 300px;
+            height: 300px;
+            background-color: gray;
+        }
+        .in{
+            width: 20px;
+            height: 20px;
+            background-color: lightblue;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+   
+    <button onmouseout="start()">click</button>
+    <div class="main">
+        <div class="in"></div>
+    </div>
+    <form onsubmit="handleSubmit()">
+        <input type="text" id="input" oninput="handleChange()">
+        <input type="text" id="input2" onchange="handleChange2()">
+        <input type="submit" value="submit">
+    </form>
+    <h2 id="sam">samuel</h2>
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+        <li>five</li>
+    </ul>
+    <script>
+        function firsONes(){
+
+            var a =document.getElementById("demo")
+            a.innerHTML = "hello world";
+            a.setAttribute("class","demo")
+            console.log(document.getElementsByClassName("demo")[0].innerHTML)
+            a.className = "hello"
+            console.log(document.getElementsByClassName("hello")[0].innerHTML)
+            a.style.backgroundColor ="red"
+            // console.log(docume)
+    
+            document.querySelector("p")
+            document.getElementsByTagName("p")
+    
+            document.querySelector("p#demo")
+            document.write("samuel")
+        }
+
+        function start(){
+
+            var a = document.getElementsByClassName("in")[0]
+
+            var interval = null
+
+            interval = setInterval(frame,100)
+
+            var position = 0;
+
+            function frame(){
+                if(position == 300){
+                    clearInterval(interval)
+                }
+                else{
+                    position ++;
+                    a.style.left = position +"px"
+                    a.style.top = position +"px"
+                }
+            }
+
+        }
+
+        function handleSubmit(){
+            alert("submitted")
+        }
+        function handleChange(){
+            let input = document.getElementById("input")
+            input.value = input.value.toUpperCase()
+        }
+        function handleChange2(){
+            let input = document.getElementById("input2")
+            input.value = input.value.toUpperCase()
+        }
+        window.onload = function(){
+            alert("this page is loaded");
+        }
+        window.onresize = function(){
+            alert("this page is resized");
+        }
+        window.onscroll = function(){
+            alert("this page is scrolled");
+        }
+
+       var sam = document.getElementById("sam")
+       sam.addEventListener("mouseout",samClicked)
+        function samClicked(){
+            alert("sam clicked")
+        }
+        sam.removeEventListener("mouseout",samClicked)
+
+        console.log(document.getElementsByTagName('ul')[0].previousElementSibling)
+    </script>
+</body>
+</html>
